@@ -3,20 +3,31 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" manifest="manifest.appcache">
+<html class="no-js">
     <!--<![endif]-->
     <head>
         <meta charset="utf-8">
+        <script>
+            (function () {
+                var path = location.pathname;
+                var slash = path.lastIndexOf("/");
+                var last = path.slice(slash + 1);
+                var dir = last.indexOf(".") >= 0 ? path.slice(0, slash + 1) : (path.charAt(path.length - 1) === "/" ? path : path + "/");
+                var base = document.createElement("base");
+                base.setAttribute("href", dir);
+                document.head.insertBefore(base, document.currentScript);
+            })();
+        </script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Little Alchemy</title>
         <meta name="description" content="A simple but addictive game. Start with four basic items and use them to find dinosaurs, unicorns and spaceships!">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
         <meta name="theme-color" content="#75005D">
         <script src="cdn-cgi/apps/head/OgRTanTSyNlCptY7QtgVJL4dWJA.js"></script>
-        <link rel="dns-prefetch" href="//fonts.googleapis.com">
-        <link rel="dns-prefetch" href="//ajax.googleapis.com">
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+        <link rel="dns-prefetch" href="https://ajax.googleapis.com">
         <link rel="dns-prefetch" href="https://apis.google.com">
-        <link rel="subresource" href="//fonts.googleapis.com/css?family=Roboto:300,100|Roboto+Condensed:300&subset=latin,latin-ext">
+        <link rel="subresource" href="https://fonts.googleapis.com/css?family=Roboto:300,100|Roboto+Condensed:300&subset=latin,latin-ext">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <meta name="apple-mobile-web-app-title" content="Little Alchemy">
@@ -29,7 +40,7 @@
         <link rel="icon" sizes="72x72" href="img/72-alpha.png">
         <link rel="icon" sizes="96x96" href="img/96-alpha.png">
         <link rel="icon" sizes="192x192" href="img/192-alpha.png">
-        <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300|Roboto:100&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Roboto:100&subset=latin,latin-ext" rel="stylesheet" type="text/css">
         <style>
             img,legend {
                 border: 0
@@ -554,7 +565,7 @@
                 <div class="content"></div>
             </div>
         </div>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script>
             window.jQuery || document.write('<script src="js/vendor/jquery-2.1.0.min.js"><\/script>')
         </script>
@@ -597,7 +608,7 @@
                 })
             }
 
-            loadCSS("/css/app.580.css");
+            loadCSS("css/app.580.css");
         </script>
     </body>
 </html>
